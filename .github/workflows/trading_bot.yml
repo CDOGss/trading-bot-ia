@@ -1,0 +1,43 @@
+name: Trading Bot - Analyse CAC 40
+
+on:
+  schedule:
+    # S'exécute à 15h00 UTC (soit 17h00 heure de Paris en été, ou 16h00 en hiver)
+    # Du lundi au vendredi (1-5)
+    - cron: '0 15 * * 1-5'
+  workflow_dispatch: # Permet de lancer manuellement depuis l'interface GitHub
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Nécessaire pour pouvoir faire un push (commit)
+
+    steps:
+      - name: Check out du dépôt
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configuration de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Installation des dépendances
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: Exécution du bot de trading
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python main.py
+        
+      - name: Commit et Push des résultats (portfolio et history)
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add portfolio.json history.json
+          git commit -m "📈 Mise à jour quotidienne du bot [skip ci]" || echo "Aucun changement à commiter"
+          git push

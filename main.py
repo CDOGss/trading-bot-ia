@@ -1,0 +1,239 @@
+import os
+import json
+import datetime
+import pytz
+import yfinance as yf
+import feedparser
+from google import genai
+from google.genai import types
+
+# Configurations
+PORTFOLIO_FILE = "portfolio.json"
+HISTORY_FILE = "history.json"
+
+# Flux RSS pour l'actualité financière française et internationale
+RSS_FEEDS = [
+    "https://www.lesechos.fr/rss/bourse",
+    "https://www.boursorama.com/rss/actualites.xml",
+    "https://news.google.com/rss/search?q=CAC+40+bourse+when:1d&hl=fr&gl=FR&ceid=FR:fr",
+    "https://news.google.com/rss/search?q=Wall+Street+bourse+when:1d&hl=fr&gl=FR&ceid=FR:fr", # Tendance Wall Street
+    "https://news.google.com/rss/search?q=macroéconomie+taux+BCE+FED+when:1d&hl=fr&gl=FR&ceid=FR:fr" # Macro et Banques Centrales
+]
+
+def load_json(filepath, default_value):
+    if os.path.exists(filepath):
+        with open(filepath, "r", encoding="utf-8") as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return default_value
+    return default_value
+
+def save_json(filepath, data):
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=4, ensure_ascii=False)
+
+def get_intraday_prices(ticker_symbol, date_str):
+    """
+    Récupère les prix à 09:00, 09:30, 12:00 et 17:00 pour une date donnée.
+    """
+    ticker = yf.Ticker(ticker_symbol)
+    # On récupère les données des 5 derniers jours par pas de 5 minutes
+    df = ticker.history(interval="5m", period="5d")
+    
+    paris_tz = pytz.timezone('Europe/Paris')
+    
+    prices = {
+        "09:00": None,
+        "09:30": None,
+        "12:00": None,
+        "17:00": None
+    }
+    
+    if df.empty:
+        return prices
+        
+    def get_closest_price(target_hour, target_minute):
+        best_diff = None
+        best_price = None
+        for dt, row in df.iterrows():
+            dt_paris = dt.astimezone(paris_tz)
+            if dt_paris.strftime('%Y-%m-%d') == date_str:
+                diff = abs((dt_paris.hour * 60 + dt_paris.minute) - (target_hour * 60 + target_minute))
+                # On tolère une différence de 15 minutes max
+                if best_diff is None or diff < best_diff:
+                    if diff <= 15:
+                        best_diff = diff
+                        best_price = row['Close']
+        return best_price
+
+    prices["09:00"] = get_closest_price(9, 0)
+    prices["09:30"] = get_closest_price(9, 30)
+    prices["12:00"] = get_closest_price(12, 0)
+    prices["17:00"] = get_closest_price(17, 0)
+    
+    return prices
+
+def evaluate_portfolio():
+    """Évalue le portefeuille de la veille et enregistre les performances."""
+    portfolio = load_json(PORTFOLIO_FILE, [])
+    if not portfolio:
+        print("Aucun portefeuille actif à évaluer.")
+        return
+
+    history = load_json(HISTORY_FILE, [])
+    paris_tz = pytz.timezone('Europe/Paris')
+    today_str = datetime.datetime.now(paris_tz).strftime('%Y-%m-%d')
+    
+    for position in portfolio:
+        ticker = position['ticker']
+        buy_price = position['buy_price']
+        buy_date = position['buy_date']
+        
+        print(f"Évaluation de {ticker} acheté à {buy_price}€ le {buy_date}")
+        prices_today = get_intraday_prices(ticker, today_str)
+        
+        performance = {}
+        for time_key, current_price in prices_today.items():
+            if current_price:
+                perf_pct = ((current_price - buy_price) / buy_price) * 100
+                perf_eur = (position['amount_eur'] / buy_price) * (current_price - buy_price)
+                performance[time_key] = {
+                    "price": current_price,
+                    "gain_loss_pct": round(perf_pct, 2),
+                    "gain_loss_eur": round(perf_eur, 2)
+                }
+            else:
+                performance[time_key] = None
+                
+        history_entry = {
+            "ticker": ticker,
+            "company": position.get('company', ''),
+            "buy_date": buy_date,
+            "buy_price": buy_price,
+            "eval_date": today_str,
+            "performance": performance
+        }
+        history.append(history_entry)
+        
+    save_json(HISTORY_FILE, history)
+    # Réinitialisation du portefeuille après revente virtuelle
+    save_json(PORTFOLIO_FILE, [])
+    print("Évaluation terminée. Historique mis à jour.")
+
+def fetch_news():
+    """Récupère les actualités via flux RSS."""
+    news_items = []
+    for feed_url in RSS_FEEDS:
+        try:
+            feed = feedparser.parse(feed_url)
+            for entry in feed.entries[:8]: # Top 8 par flux pour ne pas saturer le contexte
+                news_items.append(f"Titre: {entry.title}\nLien: {entry.link}\n")
+        except Exception as e:
+            print(f"Erreur lors de la lecture du flux {feed_url} : {e}")
+    return "\n".join(news_items)
+
+def analyze_and_buy():
+    """Analyse l'actualité avec Gemini et simule un achat."""
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("Erreur : La variable d'environnement GEMINI_API_KEY n'est pas définie.")
+        return
+        
+    print("Récupération de l'actualité...")
+    news_text = fetch_news()
+    
+    print("Analyse par l'IA (Gemini)...")
+    client = genai.Client(api_key=api_key)
+    
+    prompt = f"""
+Tu es un gérant de portefeuille "Senior" institutionnel et un trader d'élite spécialisé sur le marché européen (CAC 40 et SBF 120). Ton objectif absolu est de surperformer le benchmark (ETF CAC 40).
+Tu interviens en fin de séance européenne (17h00 heure de Paris). À cette heure, Wall Street est déjà ouvert depuis 1h30, ce qui te donne un avantage décisif sur la direction globale du marché.
+
+Voici le flux brut des actualités financières du jour (Europe, Wall Street, Macroéconomie) :
+{news_text}
+
+Ta mission :
+1. Analyser le sentiment global du marché (Risk-on / Risk-off).
+2. Prendre en compte la dynamique en cours à Wall Street (qui dictera souvent la tendance de l'ouverture européenne demain à 9h00).
+3. Identifier les catalyseurs spécifiques (earnings, upgrades de brokers, fusions-acquisitions, rotation sectorielle).
+4. Sélectionner 0, 1 ou 2 actions maximum (CAC 40 ou SBF 120) présentant un excellent ratio risque/rendement pour profiter d'un 'gap' haussier demain matin. 
+   - ATTENTION : Si le marché est trop incertain, si les voyants sont au rouge (Risk-off marqué, baisse forte de Wall Street, etc.), ton devoir de gérant est de préserver le capital. Dans ce cas, tu dois choisir 0 action (liste vide).
+   - Ne force jamais un achat si tu n'es pas convaincu.
+
+Renvoie ta réponse au format JSON contenant une liste "picks" de 0 à 2 objets avec :
+- "company": le nom de l'entreprise
+- "ticker": le symbole Yahoo Finance exact (doit impérativement se terminer par .PA, ex: "OR.PA" pour L'Oréal)
+- "reason": Ton analyse macro/micro justifiant l'achat. (Si tu choisis 0 action, renvoie simplement une liste vide, sans "reason").
+
+Exemple si tu trouves de bonnes opportunités :
+{{
+  "picks": [
+    {{"company": "Nom Entreprise 1", "ticker": "TICKER1.PA", "reason": "Analyse..."}}
+  ]
+}}
+
+Exemple si le marché est trop dangereux :
+{{
+  "picks": []
+}}
+"""
+    try:
+        response = client.models.generate_content(
+            model='gemini-2.5-pro',
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+            ),
+        )
+        data = json.loads(response.text)
+        picks = data.get("picks", [])
+    except Exception as e:
+        print(f"Erreur lors de l'appel à Gemini : {e}")
+        return
+        
+    # On limite à 2 maximum au cas où l'IA en renvoie plus
+    picks = picks[:2]
+    
+    if len(picks) == 0:
+        print("Analyse de l'IA : Marché trop incertain. Aucun achat ne sera effectué aujourd'hui.")
+        return
+        
+    portfolio = []
+    paris_tz = pytz.timezone('Europe/Paris')
+    today_str = datetime.datetime.now(paris_tz).strftime('%Y-%m-%d')
+    
+    print("--- ACHAT VIRTUEL ---")
+    for pick in picks:
+        ticker_symbol = pick['ticker']
+        try:
+            ticker = yf.Ticker(ticker_symbol)
+            # Récupère le dernier prix en direct (1 jour, intervalle 1 minute)
+            hist = ticker.history(period="1d", interval="1m")
+            if not hist.empty:
+                current_price = float(hist['Close'].iloc[-1])
+                portfolio.append({
+                    "company": pick['company'],
+                    "ticker": ticker_symbol,
+                    "reason": pick['reason'],
+                    "buy_price": current_price,
+                    "buy_date": today_str,
+                    "amount_eur": 500
+                })
+                print(f"✅ Achat de 500€ de {pick['company']} ({ticker_symbol}) à {round(current_price, 2)}€")
+                print(f"   Raison : {pick['reason']}")
+            else:
+                print(f"❌ Impossible de récupérer le prix pour {ticker_symbol}")
+        except Exception as e:
+            print(f"❌ Erreur avec yfinance pour {ticker_symbol} : {e}")
+            
+    if portfolio:
+        save_json(PORTFOLIO_FILE, portfolio)
+        print("Nouveau portefeuille enregistré.")
+
+if __name__ == "__main__":
+    print(f"--- DÉMARRAGE DU BOT DE TRADING ({datetime.datetime.now(pytz.timezone('Europe/Paris')).strftime('%H:%M:%S')}) ---")
+    evaluate_portfolio()
+    print("-----------------------------------")
+    analyze_and_buy()
+    print("--- FIN DE L'EXÉCUTION ---")
