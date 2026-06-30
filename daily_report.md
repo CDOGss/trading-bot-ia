@@ -1,14 +1,14 @@
 # 📊 Rapport Journalier du Trading Bot
 
 ## 🛒 Achats du Jour (Positions Actuelles)
-### Capgemini (CAP.PA)
-- **Achat :** 87.08000183105469€ (pour 500€)
-- **Analyse de l'IA :** Les flux d'actualités mettent en avant un net rebond de la tech américaine à Wall Street qui tire les indices en fin de trimestre. Très corrélée au Nasdaq et au secteur des services informatiques américains, Capgemini offre un excellent ratio risque/rendement pour capter mécaniquement la contagion positive et le rattrapage sectoriel dès 9h00.
+### Schneider Electric (SU.PA)
+- **Achat :** 286.04998779296875€ (pour 500€)
+- **Analyse de l'IA :** Véritable locomotive du CAC 40 sur cette fin de trimestre, Schneider Electric affiche une dynamique haussière robuste. Le sentiment global 'Risk-on', soutenu par un Wall Street au plus haut et une clôture parisienne solide autour des 8 400 points, favorise une poursuite du mouvement acheteur sous forme de gap haussier dès l'ouverture.
 
 ---
 
 ## 📈 Performances Récentes
-*Pas d'historique suffisant.* 
+- **2026-06-30** | Capgemini (CAP.PA) : +11.6€ (à 09h30)
 
 ---
 *Ce rapport est généré automatiquement par l'IA Gemini.*

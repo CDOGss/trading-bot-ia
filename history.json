@@ -1,0 +1,53 @@
+[
+    {
+        "ticker": "CAP.PA",
+        "company": "Capgemini",
+        "buy_date": "2026-06-30",
+        "buy_price": 87.08000183105469,
+        "eval_date": "2026-06-30",
+        "performance": {
+            "09:00": {
+                "price": 89.9800033569336,
+                "gain_loss_pct": 3.33,
+                "gain_loss_eur": 16.65
+            },
+            "09:30": {
+                "price": 89.0999984741211,
+                "gain_loss_pct": 2.32,
+                "gain_loss_eur": 11.6
+            },
+            "12:00": {
+                "price": 88.31999969482422,
+                "gain_loss_pct": 1.42,
+                "gain_loss_eur": 7.12
+            },
+            "17:00": {
+                "price": 87.55999755859375,
+                "gain_loss_pct": 0.55,
+                "gain_loss_eur": 2.76
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8390.7802734375,
+                "gain_loss_pct": 0.09,
+                "gain_loss_eur": 0.47
+            },
+            "09:30": {
+                "price": 8406.8896484375,
+                "gain_loss_pct": 0.29,
+                "gain_loss_eur": 1.43
+            },
+            "12:00": {
+                "price": 8410.2802734375,
+                "gain_loss_pct": 0.33,
+                "gain_loss_eur": 1.63
+            },
+            "17:00": {
+                "price": 8382.98046875,
+                "gain_loss_pct": 0.0,
+                "gain_loss_eur": 0.0
+            }
+        }
+    }
+]
