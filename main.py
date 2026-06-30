@@ -6,6 +6,7 @@ import yfinance as yf
 import feedparser
 from google import genai
 from google.genai import types
+import report
 
 # Configurations
 PORTFOLIO_FILE = "portfolio.json"
@@ -85,6 +86,14 @@ def evaluate_portfolio():
     paris_tz = pytz.timezone('Europe/Paris')
     today_str = datetime.datetime.now(paris_tz).strftime('%Y-%m-%d')
     
+    # Pre-fetch benchmark prices
+    if portfolio:
+        # Assuming all portfolio entries have the same buy_date (which they should)
+        buy_date = portfolio[0]['buy_date']
+        bench_prices_buy_day = get_intraday_prices("^FCHI", buy_date)
+        bench_buy_price = bench_prices_buy_day.get("17:00")
+        bench_prices_today = get_intraday_prices("^FCHI", today_str)
+
     for position in portfolio:
         ticker = position['ticker']
         buy_price = position['buy_price']
@@ -106,13 +115,28 @@ def evaluate_portfolio():
             else:
                 performance[time_key] = None
                 
+        benchmark_performance = {}
+        if bench_buy_price:
+            for time_key, current_bench_price in bench_prices_today.items():
+                if current_bench_price:
+                    b_perf_pct = ((current_bench_price - bench_buy_price) / bench_buy_price) * 100
+                    b_perf_eur = (position['amount_eur'] / bench_buy_price) * (current_bench_price - bench_buy_price)
+                    benchmark_performance[time_key] = {
+                        "price": current_bench_price,
+                        "gain_loss_pct": round(b_perf_pct, 2),
+                        "gain_loss_eur": round(b_perf_eur, 2)
+                    }
+                else:
+                    benchmark_performance[time_key] = None
+
         history_entry = {
             "ticker": ticker,
             "company": position.get('company', ''),
             "buy_date": buy_date,
             "buy_price": buy_price,
             "eval_date": today_str,
-            "performance": performance
+            "performance": performance,
+            "benchmark_performance": benchmark_performance
         }
         history.append(history_entry)
         
@@ -236,4 +260,9 @@ if __name__ == "__main__":
     evaluate_portfolio()
     print("-----------------------------------")
     analyze_and_buy()
+    
+    print("Génération des rapports...")
+    report.generate_charts()
+    report.generate_markdown_report()
+    
     print("--- FIN DE L'EXÉCUTION ---")

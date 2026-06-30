@@ -15,6 +15,15 @@ Chaque jour de semaine à **17h00 (heure de Paris)**, le bot s'active :
 3. **Prise de décision** : L'IA analyse le sentiment du marché (Risk-on / Risk-off) et l'influence de Wall Street pour choisir **jusqu'à 2 actions** du marché français (CAC 40 / SBF 120) qui ont de fortes chances d'ouvrir en "gap haussier" le lendemain.
 4. **Préservation du capital** : Si les voyants sont au rouge ou le marché trop incertain, le bot choisit sciemment de rester liquide (0 achat).
 
+## 📊 Tableau de Bord et Performances
+
+- [Lire le dernier Rapport Journalier de l'IA (daily_report.md)](daily_report.md)
+
+Le bot génère automatiquement un suivi de performance afin d'évaluer la meilleure heure de revente (09:00, 09:30, 12:00 ou 17:00).
+*(Le graphique ci-dessous compare les gains en euros du bot face à un investissement équivalent sur le CAC 40)*
+
+![Performance Cumulée](performance_chart.png)
+
 ## 🚀 Fonctionnement Automatique
 
 L'automatisation est gérée par le fichier `.github/workflows/trading_bot.yml`.
