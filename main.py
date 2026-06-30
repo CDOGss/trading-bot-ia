@@ -23,11 +23,11 @@ RSS_FEEDS = [
 
 def load_json(filepath, default_value):
     if os.path.exists(filepath):
-        with open(filepath, "r", encoding="utf-8") as f:
-            try:
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
                 return json.load(f)
-            except json.JSONDecodeError:
-                return default_value
+        except Exception:
+            return default_value
     return default_value
 
 def save_json(filepath, data):
