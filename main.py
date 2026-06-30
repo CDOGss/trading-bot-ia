@@ -229,7 +229,17 @@ Exemple si le marché est trop dangereux :
     
     print("--- ACHAT VIRTUEL ---")
     for pick in picks:
-        ticker_symbol = pick['ticker']
+        if not isinstance(pick, dict):
+            continue
+            
+        ticker_symbol = pick.get('ticker')
+        company_name = pick.get('company', 'Inconnu')
+        reason_text = pick.get('reason', 'Aucune raison spécifiée')
+        
+        if not ticker_symbol:
+            print("❌ L'IA a renvoyé un choix invalide (ticker manquant).")
+            continue
+            
         try:
             ticker = yf.Ticker(ticker_symbol)
             # Récupère le dernier prix en direct (1 jour, intervalle 1 minute)
@@ -237,15 +247,15 @@ Exemple si le marché est trop dangereux :
             if not hist.empty:
                 current_price = float(hist['Close'].iloc[-1])
                 portfolio.append({
-                    "company": pick['company'],
+                    "company": company_name,
                     "ticker": ticker_symbol,
-                    "reason": pick['reason'],
+                    "reason": reason_text,
                     "buy_price": current_price,
                     "buy_date": today_str,
                     "amount_eur": 500
                 })
-                print(f"✅ Achat de 500€ de {pick['company']} ({ticker_symbol}) à {round(current_price, 2)}€")
-                print(f"   Raison : {pick['reason']}")
+                print(f"✅ Achat de 500€ de {company_name} ({ticker_symbol}) à {round(current_price, 2)}€")
+                print(f"   Raison : {reason_text}")
             else:
                 print(f"❌ Impossible de récupérer le prix pour {ticker_symbol}")
         except Exception as e:
