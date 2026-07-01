@@ -49,5 +49,56 @@
                 "gain_loss_eur": 0.0
             }
         }
+    },
+    {
+        "ticker": "SU.PA",
+        "company": "Schneider Electric",
+        "buy_date": "2026-06-30",
+        "buy_price": 286.04998779296875,
+        "eval_date": "2026-07-01",
+        "performance": {
+            "09:00": {
+                "price": 277.95001220703125,
+                "gain_loss_pct": -2.83,
+                "gain_loss_eur": -14.16
+            },
+            "09:30": {
+                "price": 278.3500061035156,
+                "gain_loss_pct": -2.69,
+                "gain_loss_eur": -13.46
+            },
+            "12:00": {
+                "price": 280.0,
+                "gain_loss_pct": -2.12,
+                "gain_loss_eur": -10.58
+            },
+            "17:00": {
+                "price": 274.04998779296875,
+                "gain_loss_pct": -4.2,
+                "gain_loss_eur": -20.98
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8377.259765625,
+                "gain_loss_pct": -0.07,
+                "gain_loss_eur": -0.34
+            },
+            "09:30": {
+                "price": 8357.6796875,
+                "gain_loss_pct": -0.3,
+                "gain_loss_eur": -1.51
+            },
+            "12:00": {
+                "price": 8366.2001953125,
+                "gain_loss_pct": -0.2,
+                "gain_loss_eur": -1.0
+            },
+            "17:00": {
+                "price": 8326.650390625,
+                "gain_loss_pct": -0.67,
+                "gain_loss_eur": -3.36
+            }
+        }
     }
 ]
