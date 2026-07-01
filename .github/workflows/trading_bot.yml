@@ -2,9 +2,13 @@ name: Trading Bot - Analyse CAC 40
 
 on:
   schedule:
-    # S'exécute à 15h00 UTC (soit 17h00 heure de Paris en été, ou 16h00 en hiver)
+    # S'exécute à 15h07 UTC (soit ~17h00 heure de Paris en été, ou 16h00 en hiver)
+    # Décalé de la minute pile (:00) car c'est la plus chargée sur l'infra GitHub Actions
+    # et donc la plus susceptible d'être retardée ou sautée (cf. doc GitHub Actions).
     # Du lundi au vendredi (1-5)
-    - cron: '0 15 * * 1-5'
+    - cron: '7 15 * * 1-5'
+    # Filet de sécurité : si le run de 15h07 a été sauté, on retente à 15h35 UTC.
+    - cron: '35 15 * * 1-5'
   workflow_dispatch: # Permet de lancer manuellement depuis l'interface GitHub
 
 jobs:
@@ -19,22 +23,43 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Vérifier si le bot a déjà tourné avec succès aujourd'hui
+        id: check
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          ALREADY_RUN=$(gh run list --workflow=trading_bot.yml --status success \
+            --json databaseId,createdAt \
+            --jq "[.[] | select(.databaseId != ${{ github.run_id }}) | select(.createdAt | startswith(\"$TODAY\"))] | length")
+          echo "Exécutions réussies aujourd'hui (hors run courant) : $ALREADY_RUN"
+          if [ "$ALREADY_RUN" -gt 0 ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Configuration de Python
+        if: steps.check.outputs.skip != 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          
+
       - name: Installation des dépendances
+        if: steps.check.outputs.skip != 'true'
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
+
       - name: Exécution du bot de trading
+        if: steps.check.outputs.skip != 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python main.py
-        
+
       - name: Commit et Push des résultats (portfolio et history)
+        if: steps.check.outputs.skip != 'true'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
