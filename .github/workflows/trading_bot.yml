@@ -2,14 +2,28 @@ name: Trading Bot - Analyse CAC 40
 
 on:
   schedule:
-    # S'exécute à 15h07 UTC (soit ~17h00 heure de Paris en été, ou 16h00 en hiver)
-    # Décalé de la minute pile (:00) car c'est la plus chargée sur l'infra GitHub Actions
-    # et donc la plus susceptible d'être retardée ou sautée (cf. doc GitHub Actions).
-    # Du lundi au vendredi (1-5)
+    # Le cron GitHub Actions est "best-effort" : sur les repos publics gratuits il est
+    # régulièrement retardé de plusieurs heures, voire totalement sauté (constaté les
+    # 01/07 et 02/07/2026). Un cron manqué n'est JAMAIS rattrapé par GitHub.
+    # Stratégie : un filet de 6 créneaux étalés entre 15h07 et 17h37 UTC ; le premier
+    # qui se déclenche exécute le bot, les suivants se terminent sans rien faire grâce
+    # au garde-fou "déjà tourné aujourd'hui" ci-dessous. Il faudrait que GitHub saute
+    # les 6 créneaux d'affilée pour rater une journée.
+    # Cible : ~17h00 Paris (15h00 UTC en été). Minutes décalées de :00/:30 pile,
+    # les plus chargées sur l'infra GitHub. Du lundi au vendredi (1-5).
     - cron: '7 15 * * 1-5'
-    # Filet de sécurité : si le run de 15h07 a été sauté, on retente à 15h35 UTC.
-    - cron: '35 15 * * 1-5'
+    - cron: '37 15 * * 1-5'
+    - cron: '7 16 * * 1-5'
+    - cron: '37 16 * * 1-5'
+    - cron: '7 17 * * 1-5'
+    - cron: '37 17 * * 1-5'
   workflow_dispatch: # Permet de lancer manuellement depuis l'interface GitHub
+
+# Jamais deux runs en parallèle : si deux créneaux se déclenchent presque en même
+# temps, le second attend la fin du premier (et sera alors skippé par le garde-fou).
+concurrency:
+  group: trading-bot-daily
+  cancel-in-progress: false
 
 jobs:
   run-bot:
