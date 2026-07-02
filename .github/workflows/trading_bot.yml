@@ -79,4 +79,18 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
           git commit -m "📈 Mise à jour quotidienne du bot [skip ci]" || echo "Aucun changement à commiter"
-          git push
+          # Le remote peut avoir avancé pendant l'exécution du bot (autre push,
+          # autre run) : on se rebase avant de pousser, avec quelques tentatives.
+          pushed=false
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push; then
+              pushed=true
+              break
+            fi
+            echo "Push refusé (tentative $attempt), nouvel essai dans 5s..."
+            sleep 5
+          done
+          if [ "$pushed" != "true" ]; then
+            echo "::error::Échec du push après 3 tentatives"
+            exit 1
+          fi
