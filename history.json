@@ -100,5 +100,91 @@
                 "gain_loss_eur": -3.36
             }
         }
+    },
+    {
+        "ticker": "SW.PA",
+        "company": "Sodexo",
+        "buy_date": "2026-07-02",
+        "buy_price": 53.25,
+        "eval_date": "2026-07-03",
+        "performance": {
+            "09:00": {
+                "price": 53.099998474121094,
+                "gain_loss_pct": -0.28,
+                "gain_loss_eur": -1.41
+            },
+            "09:30": {
+                "price": 52.95000076293945,
+                "gain_loss_pct": -0.56,
+                "gain_loss_eur": -2.82
+            },
+            "12:00": {
+                "price": 53.04999923706055,
+                "gain_loss_pct": -0.38,
+                "gain_loss_eur": -1.88
+            },
+            "17:00": null
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8497.6796875,
+                "gain_loss_pct": -0.0,
+                "gain_loss_eur": -0.01
+            },
+            "09:30": {
+                "price": 8490.2197265625,
+                "gain_loss_pct": -0.09,
+                "gain_loss_eur": -0.44
+            },
+            "12:00": {
+                "price": 8473.23046875,
+                "gain_loss_pct": -0.29,
+                "gain_loss_eur": -1.44
+            },
+            "17:00": null
+        }
+    },
+    {
+        "ticker": "BNP.PA",
+        "company": "BNP Paribas",
+        "buy_date": "2026-07-02",
+        "buy_price": 102.44000244140625,
+        "eval_date": "2026-07-03",
+        "performance": {
+            "09:00": {
+                "price": 102.86000061035156,
+                "gain_loss_pct": 0.41,
+                "gain_loss_eur": 2.05
+            },
+            "09:30": {
+                "price": 103.0199966430664,
+                "gain_loss_pct": 0.57,
+                "gain_loss_eur": 2.83
+            },
+            "12:00": {
+                "price": 102.5999984741211,
+                "gain_loss_pct": 0.16,
+                "gain_loss_eur": 0.78
+            },
+            "17:00": null
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8497.6796875,
+                "gain_loss_pct": -0.0,
+                "gain_loss_eur": -0.01
+            },
+            "09:30": {
+                "price": 8490.2197265625,
+                "gain_loss_pct": -0.09,
+                "gain_loss_eur": -0.44
+            },
+            "12:00": {
+                "price": 8473.23046875,
+                "gain_loss_pct": -0.29,
+                "gain_loss_eur": -1.44
+            },
+            "17:00": null
+        }
     }
 ]
