@@ -1,10 +1,18 @@
 [
     {
-        "company": "Pluxee",
-        "ticker": "PLX.PA",
-        "reason": "Dans une séance européenne calme et globalement privée des volumes américains en raison de la fête nationale (Independance Day), la macro-économie offre un filet de sécurité avec des signaux rassurants de la BCE et de la Fed sur l'évolution des taux. Ce contexte de faible volatilité favorise le 'stock-picking' pur. Pluxee s'illustre comme la meilleure opportunité du jour grâce à un catalyseur microéconomique fort : la publication de résultats trimestriels très solides. Cette surperformance fondamentale dans un marché atone attirera les flux institutionnels dès l'ouverture demain, offrant une excellente asymétrie risque/rendement pour jouer une continuation haussière.",
-        "buy_price": 12.449999809265137,
-        "buy_date": "2026-07-03",
+        "company": "STMicroelectronics",
+        "ticker": "STMPA.PA",
+        "reason": "La séance européenne s'est achevée sur une note prudente et de légers replis, mais la dynamique à Wall Street est clairement 'Risk-On', spécifiquement portée par le secteur technologique. Ce décalage temporel (Paris fermant avant de pricer l'intégralité du rallye tech américain) offre une opportunité classique de 'catch-up' à l'ouverture demain. STMicroelectronics, en tant que proxy majeur des semi-conducteurs et de la tech sur la place parisienne, est le candidat idéal pour capter ce gap haussier, d'autant que le marché se positionne favorablement en attendant les résultats du géant Samsung.",
+        "buy_price": 63.470001220703125,
+        "buy_date": "2026-07-06",
+        "amount_eur": 500
+    },
+    {
+        "company": "Capgemini",
+        "ticker": "CAP.PA",
+        "reason": "Dans le sillage immédiat de la surperformance du Nasdaq ce soir, les grandes ESN européennes bénéficient généralement d'un flux acheteur par sympathie dès l'ouverture de Paris à 9h00. Capgemini offre un excellent ratio risque/rendement pour jouer cette rotation sectorielle express vers la 'tech' initiée par Wall Street, profitant d'un effet d'aspiration des valorisations technologiques sans l'exposition directe au risque matériel des semi-conducteurs.",
+        "buy_price": 93.0199966430664,
+        "buy_date": "2026-07-06",
         "amount_eur": 500
     }
 ]

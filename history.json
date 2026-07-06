@@ -186,5 +186,56 @@
             },
             "17:00": null
         }
+    },
+    {
+        "ticker": "PLX.PA",
+        "company": "Pluxee",
+        "buy_date": "2026-07-03",
+        "buy_price": 12.449999809265137,
+        "eval_date": "2026-07-06",
+        "performance": {
+            "09:00": {
+                "price": 12.8100004196167,
+                "gain_loss_pct": 2.89,
+                "gain_loss_eur": 14.46
+            },
+            "09:30": {
+                "price": 12.90999984741211,
+                "gain_loss_pct": 3.69,
+                "gain_loss_eur": 18.47
+            },
+            "12:00": {
+                "price": 12.850000381469727,
+                "gain_loss_pct": 3.21,
+                "gain_loss_eur": 16.06
+            },
+            "17:00": {
+                "price": 12.779999732971191,
+                "gain_loss_pct": 2.65,
+                "gain_loss_eur": 13.25
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8514.580078125,
+                "gain_loss_pct": 0.03,
+                "gain_loss_eur": 0.16
+            },
+            "09:30": {
+                "price": 8544.7998046875,
+                "gain_loss_pct": 0.39,
+                "gain_loss_eur": 1.94
+            },
+            "12:00": {
+                "price": 8523.2802734375,
+                "gain_loss_pct": 0.13,
+                "gain_loss_eur": 0.67
+            },
+            "17:00": {
+                "price": 8469.5703125,
+                "gain_loss_pct": -0.5,
+                "gain_loss_eur": -2.48
+            }
+        }
     }
 ]
