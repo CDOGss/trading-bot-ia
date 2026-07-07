@@ -278,8 +278,10 @@
         },
       };
 
-      if (chart) { chart.data = data; chart.update(); }
-      else chart = new Chart(ctx, { type: 'line', data, options });
+      // render() reconstruit tout le DOM (donc un nouveau <canvas>) à chaque changement
+      // d'horaire : on détruit l'ancienne instance et on en recrée une sur le canvas courant.
+      if (chart) chart.destroy();
+      chart = new Chart(ctx, { type: 'line', data, options });
     }
 
     function statCard(icon, label, valueHtml, subHtml) {
