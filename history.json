@@ -237,5 +237,43 @@
                 "gain_loss_eur": -2.48
             }
         }
+    },
+    {
+        "ticker": "STMPA.PA",
+        "company": "STMicroelectronics",
+        "buy_date": "2026-07-06",
+        "buy_price": 63.470001220703125,
+        "eval_date": "2026-07-07",
+        "performance": {
+            "09:00": null,
+            "09:30": null,
+            "12:00": null,
+            "17:00": null
+        },
+        "benchmark_performance": {
+            "09:00": null,
+            "09:30": null,
+            "12:00": null,
+            "17:00": null
+        }
+    },
+    {
+        "ticker": "CAP.PA",
+        "company": "Capgemini",
+        "buy_date": "2026-07-06",
+        "buy_price": 93.0199966430664,
+        "eval_date": "2026-07-07",
+        "performance": {
+            "09:00": null,
+            "09:30": null,
+            "12:00": null,
+            "17:00": null
+        },
+        "benchmark_performance": {
+            "09:00": null,
+            "09:30": null,
+            "12:00": null,
+            "17:00": null
+        }
     }
 ]
