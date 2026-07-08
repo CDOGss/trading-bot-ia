@@ -1,18 +1,1 @@
-[
-    {
-        "company": "STMicroelectronics",
-        "ticker": "STMPA.PA",
-        "reason": "Sentiment macro 'Risk-On' dicté par une forte impulsion de Wall Street sur la technologie et spécifiquement les semi-conducteurs. La Bourse de Paris n'ayant pas pleinement emboîté le pas lors de sa clôture, STMicroelectronics se positionne comme le meilleur véhicule d'investissement pour capter un gap de rattrapage haussier demain matin en corrélation directe avec les indices US (Nasdaq/SOX).",
-        "buy_price": 63.470001220703125,
-        "buy_date": "2026-07-07",
-        "amount_eur": 500
-    },
-    {
-        "company": "Thales",
-        "ticker": "HO.PA",
-        "reason": "Le flux d'actualités mentionne expressément Thales au centre d'opérations d'entreprises animant la séance européenne. Ce catalyseur microéconomique (M&A/restructuration), couplé à un marché américain soutenu par l'euphorie de la nouvelle administration Trump (généralement très favorable aux valeurs de Défense et de Sécurité), offre un excellent ratio risque/rendement pour anticiper un fort flux acheteur à l'ouverture.",
-        "buy_price": 241.5,
-        "buy_date": "2026-07-07",
-        "amount_eur": 500
-    }
-]
+[]

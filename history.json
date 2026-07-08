@@ -275,5 +275,91 @@
             "12:00": null,
             "17:00": null
         }
+    },
+    {
+        "ticker": "STMPA.PA",
+        "company": "STMicroelectronics",
+        "buy_date": "2026-07-07",
+        "buy_price": 63.470001220703125,
+        "eval_date": "2026-07-08",
+        "performance": {
+            "09:00": {
+                "price": 58.40999984741211,
+                "gain_loss_pct": -7.97,
+                "gain_loss_eur": -39.86
+            },
+            "09:30": {
+                "price": 59.400001525878906,
+                "gain_loss_pct": -6.41,
+                "gain_loss_eur": -32.06
+            },
+            "12:00": {
+                "price": 57.97999954223633,
+                "gain_loss_pct": -8.65,
+                "gain_loss_eur": -43.25
+            },
+            "17:00": null
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8362.6796875,
+                "gain_loss_pct": -1.07,
+                "gain_loss_eur": -5.35
+            },
+            "09:30": {
+                "price": 8375.2099609375,
+                "gain_loss_pct": -0.92,
+                "gain_loss_eur": -4.61
+            },
+            "12:00": {
+                "price": 8244.8603515625,
+                "gain_loss_pct": -2.46,
+                "gain_loss_eur": -12.32
+            },
+            "17:00": null
+        }
+    },
+    {
+        "ticker": "HO.PA",
+        "company": "Thales",
+        "buy_date": "2026-07-07",
+        "buy_price": 241.5,
+        "eval_date": "2026-07-08",
+        "performance": {
+            "09:00": {
+                "price": 237.5,
+                "gain_loss_pct": -1.66,
+                "gain_loss_eur": -8.28
+            },
+            "09:30": {
+                "price": 234.6999969482422,
+                "gain_loss_pct": -2.82,
+                "gain_loss_eur": -14.08
+            },
+            "12:00": {
+                "price": 233.3000030517578,
+                "gain_loss_pct": -3.4,
+                "gain_loss_eur": -16.98
+            },
+            "17:00": null
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8362.6796875,
+                "gain_loss_pct": -1.07,
+                "gain_loss_eur": -5.35
+            },
+            "09:30": {
+                "price": 8375.2099609375,
+                "gain_loss_pct": -0.92,
+                "gain_loss_eur": -4.61
+            },
+            "12:00": {
+                "price": 8244.8603515625,
+                "gain_loss_pct": -2.46,
+                "gain_loss_eur": -12.32
+            },
+            "17:00": null
+        }
     }
 ]
