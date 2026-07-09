@@ -123,7 +123,11 @@
                 "gain_loss_pct": -0.38,
                 "gain_loss_eur": -1.88
             },
-            "17:00": null
+            "17:00": {
+                "price": 52.79999923706055,
+                "gain_loss_pct": -0.85,
+                "gain_loss_eur": -4.23
+            }
         },
         "benchmark_performance": {
             "09:00": {
@@ -141,7 +145,11 @@
                 "gain_loss_pct": -0.29,
                 "gain_loss_eur": -1.44
             },
-            "17:00": null
+            "17:00": {
+                "price": 8511.849609375,
+                "gain_loss_pct": 0.17,
+                "gain_loss_eur": 0.83
+            }
         }
     },
     {
@@ -166,7 +174,11 @@
                 "gain_loss_pct": 0.16,
                 "gain_loss_eur": 0.78
             },
-            "17:00": null
+            "17:00": {
+                "price": 102.69999694824219,
+                "gain_loss_pct": 0.25,
+                "gain_loss_eur": 1.27
+            }
         },
         "benchmark_performance": {
             "09:00": {
@@ -184,7 +196,11 @@
                 "gain_loss_pct": -0.29,
                 "gain_loss_eur": -1.44
             },
-            "17:00": null
+            "17:00": {
+                "price": 8511.849609375,
+                "gain_loss_pct": 0.17,
+                "gain_loss_eur": 0.83
+            }
         }
     },
     {
@@ -245,16 +261,48 @@
         "buy_price": 63.470001220703125,
         "eval_date": "2026-07-07",
         "performance": {
-            "09:00": null,
-            "09:30": null,
-            "12:00": null,
-            "17:00": null
+            "09:00": {
+                "price": 61.25,
+                "gain_loss_pct": -3.5,
+                "gain_loss_eur": -17.49
+            },
+            "09:30": {
+                "price": 60.709999084472656,
+                "gain_loss_pct": -4.35,
+                "gain_loss_eur": -21.74
+            },
+            "12:00": {
+                "price": 59.90999984741211,
+                "gain_loss_pct": -5.61,
+                "gain_loss_eur": -28.04
+            },
+            "17:00": {
+                "price": 58.880001068115234,
+                "gain_loss_pct": -7.23,
+                "gain_loss_eur": -36.16
+            }
         },
         "benchmark_performance": {
-            "09:00": null,
-            "09:30": null,
-            "12:00": null,
-            "17:00": null
+            "09:00": {
+                "price": 8506.4296875,
+                "gain_loss_pct": 0.44,
+                "gain_loss_eur": 2.18
+            },
+            "09:30": {
+                "price": 8531.650390625,
+                "gain_loss_pct": 0.73,
+                "gain_loss_eur": 3.66
+            },
+            "12:00": {
+                "price": 8512.1201171875,
+                "gain_loss_pct": 0.5,
+                "gain_loss_eur": 2.51
+            },
+            "17:00": {
+                "price": 8453.1298828125,
+                "gain_loss_pct": -0.19,
+                "gain_loss_eur": -0.97
+            }
         }
     },
     {
@@ -264,16 +312,48 @@
         "buy_price": 93.0199966430664,
         "eval_date": "2026-07-07",
         "performance": {
-            "09:00": null,
-            "09:30": null,
-            "12:00": null,
-            "17:00": null
+            "09:00": {
+                "price": 95.0,
+                "gain_loss_pct": 2.13,
+                "gain_loss_eur": 10.64
+            },
+            "09:30": {
+                "price": 94.05999755859375,
+                "gain_loss_pct": 1.12,
+                "gain_loss_eur": 5.59
+            },
+            "12:00": {
+                "price": 94.44000244140625,
+                "gain_loss_pct": 1.53,
+                "gain_loss_eur": 7.63
+            },
+            "17:00": {
+                "price": 93.80000305175781,
+                "gain_loss_pct": 0.84,
+                "gain_loss_eur": 4.19
+            }
         },
         "benchmark_performance": {
-            "09:00": null,
-            "09:30": null,
-            "12:00": null,
-            "17:00": null
+            "09:00": {
+                "price": 8506.4296875,
+                "gain_loss_pct": 0.44,
+                "gain_loss_eur": 2.18
+            },
+            "09:30": {
+                "price": 8531.650390625,
+                "gain_loss_pct": 0.73,
+                "gain_loss_eur": 3.66
+            },
+            "12:00": {
+                "price": 8512.1201171875,
+                "gain_loss_pct": 0.5,
+                "gain_loss_eur": 2.51
+            },
+            "17:00": {
+                "price": 8453.1298828125,
+                "gain_loss_pct": -0.19,
+                "gain_loss_eur": -0.97
+            }
         }
     },
     {
@@ -298,7 +378,11 @@
                 "gain_loss_pct": -8.65,
                 "gain_loss_eur": -43.25
             },
-            "17:00": null
+            "17:00": {
+                "price": 58.529998779296875,
+                "gain_loss_pct": -7.78,
+                "gain_loss_eur": -38.92
+            }
         },
         "benchmark_performance": {
             "09:00": {
@@ -316,7 +400,11 @@
                 "gain_loss_pct": -2.46,
                 "gain_loss_eur": -12.32
             },
-            "17:00": null
+            "17:00": {
+                "price": 8256.25,
+                "gain_loss_pct": -2.33,
+                "gain_loss_eur": -11.65
+            }
         }
     },
     {
@@ -341,7 +429,11 @@
                 "gain_loss_pct": -3.4,
                 "gain_loss_eur": -16.98
             },
-            "17:00": null
+            "17:00": {
+                "price": 232.60000610351562,
+                "gain_loss_pct": -3.69,
+                "gain_loss_eur": -18.43
+            }
         },
         "benchmark_performance": {
             "09:00": {
@@ -359,7 +451,11 @@
                 "gain_loss_pct": -2.46,
                 "gain_loss_eur": -12.32
             },
-            "17:00": null
+            "17:00": {
+                "price": 8256.25,
+                "gain_loss_pct": -2.33,
+                "gain_loss_eur": -11.65
+            }
         }
     }
 ]

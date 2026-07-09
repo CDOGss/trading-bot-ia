@@ -266,6 +266,21 @@ Exemple si le marché est trop dangereux :
         print("Nouveau portefeuille enregistré.")
 
 if __name__ == "__main__":
+    # Garde-fou : le bot est conçu pour tourner en fin de séance (~17h00 Paris).
+    # Toute exécution trop tôt (déclenchement manuel matinal, rattrapage d'une
+    # tâche planifiée...) corrompt les données : évaluation sans cotations du
+    # jour (performances perdues) et achat à un prix figé de la veille.
+    # Constaté les 07/07 (run à 07h10 Paris) et 08/07/2026 (run à 16h18 Paris).
+    paris_now = datetime.datetime.now(pytz.timezone('Europe/Paris'))
+    if os.environ.get("FORCE_RUN") != "1":
+        if paris_now.weekday() >= 5:
+            print(f"⛔ Week-end ({paris_now.strftime('%A %d/%m')}) : bourse fermée, exécution annulée.")
+            raise SystemExit(0)
+        if (paris_now.hour, paris_now.minute) < (16, 45):
+            print(f"⛔ Il est {paris_now.strftime('%H:%M')} à Paris : le bot ne doit tourner qu'après 16h45.")
+            print("   Exécution annulée pour ne pas corrompre les données (FORCE_RUN=1 pour outrepasser).")
+            raise SystemExit(0)
+
     print(f"--- DÉMARRAGE DU BOT DE TRADING ({datetime.datetime.now(pytz.timezone('Europe/Paris')).strftime('%H:%M:%S')}) ---")
     evaluate_portfolio()
     print("-----------------------------------")
