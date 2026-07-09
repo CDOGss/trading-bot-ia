@@ -157,15 +157,54 @@ def fetch_news():
             print(f"Erreur lors de la lecture du flux {feed_url} : {e}")
     return "\n".join(news_items)
 
+def fetch_market_data():
+    """Snapshot chiffré des indices : le prompt vantait 'l'avantage Wall Street'
+    mais l'IA ne voyait que des titres RSS, aucun prix réel."""
+    indices = [("^FCHI", "CAC 40"), ("^GSPC", "S&P 500"), ("^IXIC", "Nasdaq"), ("^VIX", "VIX (volatilité)")]
+    lines = []
+    for symbol, name in indices:
+        try:
+            t = yf.Ticker(symbol)
+            daily = t.history(period="2d", interval="1d")
+            intra = t.history(period="1d", interval="5m")
+            if daily.empty or intra.empty:
+                continue
+            prev_close = daily['Close'].iloc[0] if len(daily) > 1 else daily['Close'].iloc[-1]
+            last = float(intra['Close'].iloc[-1])
+            chg = (last - prev_close) / prev_close * 100
+            lines.append(f"- {name} : {last:.2f} ({chg:+.2f}% vs clôture de la veille)")
+        except Exception as e:
+            print(f"Donnée marché indisponible pour {symbol} : {e}")
+    return "\n".join(lines) if lines else "Données de marché indisponibles."
+
+def build_feedback(n=5):
+    """Résultats des n dernières sélections (revente à l'ouverture), pour que
+    l'IA voie ce que ses choix ont réellement donné."""
+    history = load_json(HISTORY_FILE, [])
+    entries = [e for e in history
+               if isinstance((e.get('performance') or {}).get('09:00'), dict)][-n:]
+    if not entries:
+        return "Aucun historique disponible (premières séances)."
+    lines = []
+    for e in entries:
+        p = e['performance']['09:00']
+        b = (e.get('benchmark_performance') or {}).get('09:00')
+        bench = f" (CAC 40 : {b['gain_loss_pct']:+.2f}%)" if isinstance(b, dict) else ""
+        lines.append(f"- {e['buy_date']} {e['company']} ({e['ticker']}) : {p['gain_loss_pct']:+.2f}% à l'ouverture du lendemain{bench}")
+    return "\n".join(lines)
+
 def analyze_and_buy():
     """Analyse l'actualité avec Gemini et simule un achat."""
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         print("Erreur : La variable d'environnement GEMINI_API_KEY n'est pas définie.")
         return
-        
+
     print("Récupération de l'actualité...")
     news_text = fetch_news()
+    print("Récupération des données de marché...")
+    market_data = fetch_market_data()
+    feedback = build_feedback()
     
     print("Analyse par l'IA (Gemini)...")
     client = genai.Client(api_key=api_key)
@@ -173,6 +212,14 @@ def analyze_and_buy():
     prompt = f"""
 Tu es un gérant de portefeuille "Senior" institutionnel et un trader d'élite spécialisé sur le marché européen (CAC 40 et SBF 120). Ton objectif absolu est de surperformer le benchmark (ETF CAC 40).
 Tu interviens en fin de séance européenne (17h00 heure de Paris). À cette heure, Wall Street est déjà ouvert depuis 1h30, ce qui te donne un avantage décisif sur la direction globale du marché.
+
+RÈGLE DE SORTIE IMPÉRATIVE : toute position achetée maintenant sera revendue demain matin à 09h00 précises, à l'ouverture de la Bourse de Paris. Tu optimises donc EXCLUSIVEMENT pour le gap d'ouverture (overnight), pas pour la performance en séance. L'historique montre que les gains se font à l'ouverture puis s'érodent en séance : seul le gap compte.
+
+Données de marché en temps réel (source Yahoo Finance) :
+{market_data}
+
+Résultats de tes dernières sélections (revente à l'ouverture du lendemain) — tires-en les leçons :
+{feedback}
 
 Voici le flux brut des actualités financières du jour (Europe, Wall Street, Macroéconomie) :
 {news_text}

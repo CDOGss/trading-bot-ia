@@ -117,11 +117,12 @@ def generate_markdown_report():
     if recent_history:
         for h in reversed(recent_history):
             perf = h.get("performance", {})
-            p_930 = perf.get("09:30")
-            if p_930:
-                gain_eur = p_930.get("gain_loss_eur", 0)
+            # 09:00 = l'horaire de sortie officiel du bot (revente à l'ouverture)
+            p_900 = perf.get("09:00")
+            if p_900:
+                gain_eur = p_900.get("gain_loss_eur", 0)
                 sign = "+" if gain_eur >= 0 else ""
-                report += f"- **{h['eval_date']}** | {h['company']} ({h['ticker']}) : {sign}{gain_eur}€ (à 09h30)\n"
+                report += f"- **{h['eval_date']}** | {h['company']} ({h['ticker']}) : {sign}{gain_eur}€ (à l'ouverture)\n"
             else:
                 report += f"- **{h['eval_date']}** | {h['company']} ({h['ticker']}) : En attente de cotation\n"
     else:
