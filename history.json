@@ -457,5 +457,107 @@
                 "gain_loss_eur": -11.65
             }
         }
+    },
+    {
+        "ticker": "STMPA.PA",
+        "company": "STMicroelectronics",
+        "buy_date": "2026-07-09",
+        "buy_price": 62.65999984741211,
+        "eval_date": "2026-07-10",
+        "performance": {
+            "09:00": {
+                "price": 62.38999938964844,
+                "gain_loss_pct": -0.43,
+                "gain_loss_eur": -2.15
+            },
+            "09:30": {
+                "price": 62.650001525878906,
+                "gain_loss_pct": -0.02,
+                "gain_loss_eur": -0.08
+            },
+            "12:00": {
+                "price": 62.650001525878906,
+                "gain_loss_pct": -0.02,
+                "gain_loss_eur": -0.08
+            },
+            "17:00": {
+                "price": 61.4900016784668,
+                "gain_loss_pct": -1.87,
+                "gain_loss_eur": -9.34
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8327.6904296875,
+                "gain_loss_pct": 0.14,
+                "gain_loss_eur": 0.72
+            },
+            "09:30": {
+                "price": 8348.0302734375,
+                "gain_loss_pct": 0.39,
+                "gain_loss_eur": 1.94
+            },
+            "12:00": {
+                "price": 8333.6904296875,
+                "gain_loss_pct": 0.22,
+                "gain_loss_eur": 1.08
+            },
+            "17:00": {
+                "price": 8314.9599609375,
+                "gain_loss_pct": -0.01,
+                "gain_loss_eur": -0.05
+            }
+        }
+    },
+    {
+        "ticker": "MC.PA",
+        "company": "LVMH",
+        "buy_date": "2026-07-09",
+        "buy_price": 492.8999938964844,
+        "eval_date": "2026-07-10",
+        "performance": {
+            "09:00": {
+                "price": 493.3999938964844,
+                "gain_loss_pct": 0.1,
+                "gain_loss_eur": 0.51
+            },
+            "09:30": {
+                "price": 493.0,
+                "gain_loss_pct": 0.02,
+                "gain_loss_eur": 0.1
+            },
+            "12:00": {
+                "price": 491.29998779296875,
+                "gain_loss_pct": -0.32,
+                "gain_loss_eur": -1.62
+            },
+            "17:00": {
+                "price": 488.8500061035156,
+                "gain_loss_pct": -0.82,
+                "gain_loss_eur": -4.11
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8327.6904296875,
+                "gain_loss_pct": 0.14,
+                "gain_loss_eur": 0.72
+            },
+            "09:30": {
+                "price": 8348.0302734375,
+                "gain_loss_pct": 0.39,
+                "gain_loss_eur": 1.94
+            },
+            "12:00": {
+                "price": 8333.6904296875,
+                "gain_loss_pct": 0.22,
+                "gain_loss_eur": 1.08
+            },
+            "17:00": {
+                "price": 8314.9599609375,
+                "gain_loss_pct": -0.01,
+                "gain_loss_eur": -0.05
+            }
+        }
     }
 ]
