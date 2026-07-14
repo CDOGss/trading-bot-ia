@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "company": "TotalEnergies",
+        "ticker": "TTE.PA",
+        "reason": "Les annonces concernant le blocus dans le détroit d'Ormuz et le sursaut des prix du pétrole constituent un catalyseur haussier majeur pour le secteur de l'énergie. Pendant la nuit, la cotation asiatique du brut devrait intégrer cette prime de risque géopolitique. TTE profitera mécaniquement d'un gap haussier à l'ouverture de Paris, porté par une rotation sectorielle fuyant le luxe (qui chute à cause de l'envolée des taux et de l'inflation importée).",
+        "buy_price": 71.12000274658203,
+        "buy_date": "2026-07-14",
+        "amount_eur": 500
+    }
+]
