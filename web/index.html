@@ -298,6 +298,7 @@
           <div class="pos-title">
             <span class="pos-name">${p.company || 'Position'}</span>
             <span class="ticker-badge">${p.ticker || ''}</span>
+            ${p.conviction ? `<span class="ticker-badge" style="background:rgba(255,179,0,0.12);color:var(--warning)">★ ${p.conviction}/10</span>` : ''}
           </div>
           <span class="badge pending">⏳ En cours</span>
         </div>
@@ -328,6 +329,7 @@
           <div class="pos-title">
             <span class="pos-name">${e.company || e.ticker}</span>
             <span class="ticker-badge">${e.ticker || ''}</span>
+            ${e.conviction ? `<span class="ticker-badge" style="background:rgba(255,179,0,0.12);color:var(--warning)">★ ${e.conviction}/10</span>` : ''}
           </div>
           <span class="badge ${cls}">${badgeTxt}</span>
         </div>

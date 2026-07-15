@@ -134,6 +134,8 @@ def evaluate_portfolio():
             "company": position.get('company', ''),
             "buy_date": buy_date,
             "buy_price": buy_price,
+            "conviction": position.get('conviction'),
+            "market_regime": position.get('market_regime'),
             "eval_date": today_str,
             "performance": performance,
             "benchmark_performance": benchmark_performance
@@ -167,10 +169,12 @@ def fetch_market_data():
             t = yf.Ticker(symbol)
             daily = t.history(period="2d", interval="1d")
             intra = t.history(period="1d", interval="5m")
-            if daily.empty or intra.empty:
+            if daily.empty:
                 continue
             prev_close = daily['Close'].iloc[0] if len(daily) > 1 else daily['Close'].iloc[-1]
-            last = float(intra['Close'].iloc[-1])
+            # Certains indices (ex : ^VIX) n'ont pas d'intraday sur yfinance :
+            # on retombe sur la dernière cotation quotidienne.
+            last = float(intra['Close'].iloc[-1]) if not intra.empty else float(daily['Close'].iloc[-1])
             chg = (last - prev_close) / prev_close * 100
             lines.append(f"- {name} : {last:.2f} ({chg:+.2f}% vs clôture de la veille)")
         except Exception as e:
@@ -225,27 +229,38 @@ Voici le flux brut des actualités financières du jour (Europe, Wall Street, Ma
 {news_text}
 
 Ta mission :
-1. Analyser le sentiment global du marché (Risk-on / Risk-off).
+1. Analyser le sentiment global du marché (Risk-on / Risk-off) à partir des données chiffrées ci-dessus ET de l'actualité.
 2. Prendre en compte la dynamique en cours à Wall Street (qui dictera souvent la tendance de l'ouverture européenne demain à 9h00).
-3. Identifier les catalyseurs spécifiques (earnings, upgrades de brokers, fusions-acquisitions, rotation sectorielle).
-4. Sélectionner 0, 1 ou 2 actions maximum (CAC 40 ou SBF 120) présentant un excellent ratio risque/rendement pour profiter d'un 'gap' haussier demain matin. 
-   - ATTENTION : Si le marché est trop incertain, si les voyants sont au rouge (Risk-off marqué, baisse forte de Wall Street, etc.), ton devoir de gérant est de préserver le capital. Dans ce cas, tu dois choisir 0 action (liste vide).
+3. Identifier les catalyseurs qui NE SONT PAS ENCORE DANS LE PRIX : c'est ton seul véritable edge. Privilégie les informations apparues en toute fin de séance européenne ou pendant la séance américaine (après ~16h00 à Paris). Un catalyseur connu depuis ce matin est déjà intégré dans le cours de clôture de Paris — il ne produira AUCUN gap demain.
+4. PIÈGES À ÉVITER impérativement (gaps mécaniques ou aléatoires, sans edge) :
+   - une valeur qui détache un dividende demain : gap baissier mécanique du montant du dividende ;
+   - une valeur qui publie ses résultats demain avant l'ouverture : loterie binaire, pas un edge ;
+   - courir après une valeur qui a déjà fortement monté aujourd'hui sur un catalyseur connu de tous : tu achèterais le sommet.
+5. Sélectionner 0, 1 ou 2 actions maximum (CAC 40 ou SBF 120) présentant un excellent ratio risque/rendement pour le gap de demain 09h00, chacune notée d'une conviction de 1 à 10 :
+   - N'achète JAMAIS une valeur dont ta conviction est inférieure à 7/10.
+   - Ne propose 2 valeurs que si les DEUX sont à 8/10 ou plus. Une seule excellente idée vaut mieux que deux idées moyennes.
+   - Si le marché est trop incertain (Risk-off marqué, forte baisse de Wall Street en cours), ton devoir de gérant est de préserver le capital : renvoie une liste vide.
    - Ne force jamais un achat si tu n'es pas convaincu.
 
-Renvoie ta réponse au format JSON contenant une liste "picks" de 0 à 2 objets avec :
-- "company": le nom de l'entreprise
-- "ticker": le symbole Yahoo Finance exact (doit impérativement se terminer par .PA, ex: "OR.PA" pour L'Oréal)
-- "reason": Ton analyse macro/micro justifiant l'achat. (Si tu choisis 0 action, renvoie simplement une liste vide, sans "reason").
+Renvoie ta réponse au format JSON avec :
+- "market_regime": "risk_on", "neutre" ou "risk_off" (ton diagnostic global)
+- "picks": liste de 0 à 2 objets contenant :
+  - "company": le nom de l'entreprise
+  - "ticker": le symbole Yahoo Finance exact (doit impérativement se terminer par .PA, ex: "OR.PA" pour L'Oréal)
+  - "conviction": ta note de 1 à 10 (jamais d'achat sous 7)
+  - "reason": ton analyse macro/micro, en précisant POURQUOI le catalyseur n'est pas encore dans le prix.
 
-Exemple si tu trouves de bonnes opportunités :
+Exemple si tu trouves une excellente opportunité :
 {{
+  "market_regime": "risk_on",
   "picks": [
-    {{"company": "Nom Entreprise 1", "ticker": "TICKER1.PA", "reason": "Analyse..."}}
+    {{"company": "Nom Entreprise 1", "ticker": "TICKER1.PA", "conviction": 8, "reason": "Analyse..."}}
   ]
 }}
 
 Exemple si le marché est trop dangereux :
 {{
+  "market_regime": "risk_off",
   "picks": []
 }}
 """
@@ -259,13 +274,26 @@ Exemple si le marché est trop dangereux :
         )
         data = json.loads(response.text)
         picks = data.get("picks", [])
+        market_regime = data.get("market_regime", "inconnu")
     except Exception as e:
         print(f"Erreur lors de l'appel à Gemini : {e}")
         return
-        
+
+    print(f"Diagnostic de l'IA : marché {market_regime}")
+
     # On limite à 2 maximum au cas où l'IA en renvoie plus
     picks = picks[:2]
-    
+
+    # Discipline de conviction : le prompt interdit tout achat sous 7/10.
+    filtered = []
+    for pick in picks:
+        conv = pick.get('conviction') if isinstance(pick, dict) else None
+        if isinstance(conv, (int, float)) and conv < 7:
+            print(f"⚠️ {pick.get('company', '?')} écarté : conviction {conv}/10 < 7.")
+            continue
+        filtered.append(pick)
+    picks = filtered
+
     if len(picks) == 0:
         print("Analyse de l'IA : Marché trop incertain. Aucun achat ne sera effectué aujourd'hui.")
         return
@@ -282,6 +310,7 @@ Exemple si le marché est trop dangereux :
         ticker_symbol = pick.get('ticker')
         company_name = pick.get('company', 'Inconnu')
         reason_text = pick.get('reason', 'Aucune raison spécifiée')
+        conviction = pick.get('conviction')
         
         if not ticker_symbol:
             print("❌ L'IA a renvoyé un choix invalide (ticker manquant).")
@@ -297,11 +326,14 @@ Exemple si le marché est trop dangereux :
                     "company": company_name,
                     "ticker": ticker_symbol,
                     "reason": reason_text,
+                    "conviction": conviction,
+                    "market_regime": market_regime,
                     "buy_price": current_price,
                     "buy_date": today_str,
                     "amount_eur": 500
                 })
-                print(f"✅ Achat de 500€ de {company_name} ({ticker_symbol}) à {round(current_price, 2)}€")
+                conv_txt = f" (conviction {conviction}/10)" if conviction else ""
+                print(f"✅ Achat de 500€ de {company_name} ({ticker_symbol}) à {round(current_price, 2)}€{conv_txt}")
                 print(f"   Raison : {reason_text}")
             else:
                 print(f"❌ Impossible de récupérer le prix pour {ticker_symbol}")
