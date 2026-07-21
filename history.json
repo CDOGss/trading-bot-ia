@@ -612,5 +612,58 @@
                 "gain_loss_eur": 0.88
             }
         }
+    },
+    {
+        "ticker": "SOI.PA",
+        "company": "Soitec",
+        "buy_date": "2026-07-20",
+        "buy_price": 85.63999938964844,
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "eval_date": "2026-07-21",
+        "performance": {
+            "09:00": {
+                "price": 89.36000061035156,
+                "gain_loss_pct": 4.34,
+                "gain_loss_eur": 21.72
+            },
+            "09:30": {
+                "price": 89.9800033569336,
+                "gain_loss_pct": 5.07,
+                "gain_loss_eur": 25.34
+            },
+            "12:00": {
+                "price": 90.0999984741211,
+                "gain_loss_pct": 5.21,
+                "gain_loss_eur": 26.04
+            },
+            "17:00": {
+                "price": 94.44000244140625,
+                "gain_loss_pct": 10.28,
+                "gain_loss_eur": 51.38
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8355.490234375,
+                "gain_loss_pct": 0.13,
+                "gain_loss_eur": 0.67
+            },
+            "09:30": {
+                "price": 8344.9599609375,
+                "gain_loss_pct": 0.01,
+                "gain_loss_eur": 0.04
+            },
+            "12:00": {
+                "price": 8366.169921875,
+                "gain_loss_pct": 0.26,
+                "gain_loss_eur": 1.31
+            },
+            "17:00": {
+                "price": 8344.1904296875,
+                "gain_loss_pct": -0.0,
+                "gain_loss_eur": -0.0
+            }
+        }
     }
 ]
