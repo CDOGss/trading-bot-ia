@@ -665,5 +665,111 @@
                 "gain_loss_eur": -0.0
             }
         }
+    },
+    {
+        "ticker": "CAP.PA",
+        "company": "Capgemini",
+        "buy_date": "2026-07-21",
+        "buy_price": 89.80000305175781,
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "eval_date": "2026-07-22",
+        "performance": {
+            "09:00": {
+                "price": 88.72000122070312,
+                "gain_loss_pct": -1.2,
+                "gain_loss_eur": -6.01
+            },
+            "09:30": {
+                "price": 88.77999877929688,
+                "gain_loss_pct": -1.14,
+                "gain_loss_eur": -5.68
+            },
+            "12:00": {
+                "price": 89.18000030517578,
+                "gain_loss_pct": -0.69,
+                "gain_loss_eur": -3.45
+            },
+            "17:00": {
+                "price": 88.73999786376953,
+                "gain_loss_pct": -1.18,
+                "gain_loss_eur": -5.9
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8360.2001953125,
+                "gain_loss_pct": 0.19,
+                "gain_loss_eur": 0.96
+            },
+            "09:30": {
+                "price": 8383.2900390625,
+                "gain_loss_pct": 0.47,
+                "gain_loss_eur": 2.34
+            },
+            "12:00": {
+                "price": 8423.6396484375,
+                "gain_loss_pct": 0.95,
+                "gain_loss_eur": 4.76
+            },
+            "17:00": {
+                "price": 8449.7900390625,
+                "gain_loss_pct": 1.27,
+                "gain_loss_eur": 6.33
+            }
+        }
+    },
+    {
+        "ticker": "TTE.PA",
+        "company": "TotalEnergies",
+        "buy_date": "2026-07-21",
+        "buy_price": 72.62999725341797,
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "eval_date": "2026-07-22",
+        "performance": {
+            "09:00": {
+                "price": 73.52999877929688,
+                "gain_loss_pct": 1.24,
+                "gain_loss_eur": 6.2
+            },
+            "09:30": {
+                "price": 74.08999633789062,
+                "gain_loss_pct": 2.01,
+                "gain_loss_eur": 10.05
+            },
+            "12:00": {
+                "price": 74.1500015258789,
+                "gain_loss_pct": 2.09,
+                "gain_loss_eur": 10.46
+            },
+            "17:00": {
+                "price": 74.17500305175781,
+                "gain_loss_pct": 2.13,
+                "gain_loss_eur": 10.64
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8360.2001953125,
+                "gain_loss_pct": 0.19,
+                "gain_loss_eur": 0.96
+            },
+            "09:30": {
+                "price": 8383.2900390625,
+                "gain_loss_pct": 0.47,
+                "gain_loss_eur": 2.34
+            },
+            "12:00": {
+                "price": 8423.6396484375,
+                "gain_loss_pct": 0.95,
+                "gain_loss_eur": 4.76
+            },
+            "17:00": {
+                "price": 8449.7900390625,
+                "gain_loss_pct": 1.27,
+                "gain_loss_eur": 6.33
+            }
+        }
     }
 ]
