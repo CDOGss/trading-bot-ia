@@ -11,12 +11,12 @@ on:
     # les 6 créneaux d'affilée pour rater une journée.
     # Cible : ~17h00 Paris (15h00 UTC en été). Minutes décalées de :00/:30 pile,
     # les plus chargées sur l'infra GitHub. Du lundi au vendredi (1-5).
-    - cron: '7 15 * * 1-5'
-    - cron: '37 15 * * 1-5'
-    - cron: '7 16 * * 1-5'
-    - cron: '37 16 * * 1-5'
-    - cron: '7 17 * * 1-5'
-    - cron: '37 17 * * 1-5'
+    - cron: '12 15 * * 1-5'
+    - cron: '43 15 * * 1-5'
+    - cron: '12 16 * * 1-5'
+    - cron: '43 16 * * 1-5'
+    - cron: '12 17 * * 1-5'
+    - cron: '43 17 * * 1-5'
   workflow_dispatch: # Permet de lancer manuellement depuis l'interface GitHub
 
 # Jamais deux runs en parallèle : si deux créneaux se déclenchent presque en même
