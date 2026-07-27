@@ -824,5 +824,58 @@
                 "gain_loss_eur": -8.75
             }
         }
+    },
+    {
+        "ticker": "AIR.PA",
+        "company": "Airbus",
+        "buy_date": "2026-07-24",
+        "buy_price": 205.89999389648438,
+        "conviction": 8,
+        "market_regime": "neutre",
+        "eval_date": "2026-07-27",
+        "performance": {
+            "09:00": {
+                "price": 211.6999969482422,
+                "gain_loss_pct": 2.82,
+                "gain_loss_eur": 14.08
+            },
+            "09:30": {
+                "price": 210.0500030517578,
+                "gain_loss_pct": 2.02,
+                "gain_loss_eur": 10.08
+            },
+            "12:00": {
+                "price": 208.8000030517578,
+                "gain_loss_pct": 1.41,
+                "gain_loss_eur": 7.04
+            },
+            "17:00": {
+                "price": 209.39999389648438,
+                "gain_loss_pct": 1.7,
+                "gain_loss_eur": 8.5
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8460.509765625,
+                "gain_loss_pct": 1.48,
+                "gain_loss_eur": 7.41
+            },
+            "09:30": {
+                "price": 8436.9296875,
+                "gain_loss_pct": 1.2,
+                "gain_loss_eur": 6.0
+            },
+            "12:00": {
+                "price": 8431.5400390625,
+                "gain_loss_pct": 1.14,
+                "gain_loss_eur": 5.68
+            },
+            "17:00": {
+                "price": 8443.2900390625,
+                "gain_loss_pct": 1.28,
+                "gain_loss_eur": 6.38
+            }
+        }
     }
 ]
