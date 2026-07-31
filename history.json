@@ -877,5 +877,58 @@
                 "gain_loss_eur": 6.38
             }
         }
+    },
+    {
+        "ticker": "DSY.PA",
+        "company": "Dassault Systèmes",
+        "buy_date": "2026-07-30",
+        "buy_price": 20.229999542236328,
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "eval_date": "2026-07-31",
+        "performance": {
+            "09:00": {
+                "price": 19.739999771118164,
+                "gain_loss_pct": -2.42,
+                "gain_loss_eur": -12.11
+            },
+            "09:30": {
+                "price": 19.915000915527344,
+                "gain_loss_pct": -1.56,
+                "gain_loss_eur": -7.79
+            },
+            "12:00": {
+                "price": 19.799999237060547,
+                "gain_loss_pct": -2.13,
+                "gain_loss_eur": -10.63
+            },
+            "17:00": {
+                "price": 19.895000457763672,
+                "gain_loss_pct": -1.66,
+                "gain_loss_eur": -8.28
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8517.3203125,
+                "gain_loss_pct": 0.31,
+                "gain_loss_eur": 1.55
+            },
+            "09:30": {
+                "price": 8574.58984375,
+                "gain_loss_pct": 0.98,
+                "gain_loss_eur": 4.92
+            },
+            "12:00": {
+                "price": 8556.7001953125,
+                "gain_loss_pct": 0.77,
+                "gain_loss_eur": 3.87
+            },
+            "17:00": {
+                "price": 8532.5400390625,
+                "gain_loss_pct": 0.49,
+                "gain_loss_eur": 2.44
+            }
+        }
     }
 ]
