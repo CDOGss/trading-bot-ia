@@ -1,21 +1,17 @@
 # 📊 Rapport Journalier du Trading Bot
 
 ## 🛒 Achats du Jour (Positions Actuelles)
-### Air France-KLM (AF.PA)
-- **Achat :** 12.460000038146973€ (pour 500€)
-- **Analyse de l'IA :** La dynamique majeure de la soirée est la chute prononcée du Brent suite à l'annonce des pourparlers Washington-Téhéran. Ce mouvement s'accélère pendant la séance américaine, après la clôture parisienne. Le kérosène étant le poste de coût principal de la compagnie, cette baisse inattendue du pétrole offre un effet de levier massif sur les marges qui ne sera pricé qu'à l'ouverture demain à 9h00.
-
-### Airbus (AIR.PA)
-- **Achat :** 207.9499969482422€ (pour 500€)
-- **Analyse de l'IA :** La baisse des cours du brut améliore mécaniquement la santé financière des compagnies aériennes, ce qui sécurise le carnet de commandes d'Airbus. De plus, la très forte hausse des indices américains (Nasdaq à +2.03%) confirme un puissant sentiment 'risk-on'. L'historique récent prouve que la valeur est très réactive aux gaps d'ouverture dans ce type de configuration macroéconomique.
+### Capgemini (CAP.PA)
+- **Achat :** 107.3499984741211€ (pour 500€)
+- **Analyse de l'IA :** L'accélération brutale du Nasdaq (+2.20%) et l'envolée stratosphérique de Palantir (+27% à Wall Street) sur d'excellents résultats liés à l'IA créent un appel d'air massif pour la tech. Cette dynamique s'est amplifiée pendant la séance américaine, donc après ou vers la fin de séance européenne. Ce puissant flux acheteur n'est pas encore intégré dans les cours parisiens et provoquera mécaniquement un gap haussier de rattrapage demain matin à 9h00 sur les valeurs technologiques et de services informatiques européennes.
 
 ---
 
 ## 📈 Performances Récentes
+- **2026-08-04** | Airbus (AIR.PA) : +9.62€ (à l'ouverture)
+- **2026-08-04** | Air France-KLM (AF.PA) : -7.42€ (à l'ouverture)
 - **2026-07-31** | Dassault Systèmes (DSY.PA) : -12.11€ (à l'ouverture)
 - **2026-07-27** | Airbus (AIR.PA) : +14.08€ (à l'ouverture)
-- **2026-07-23** | TotalEnergies (TTE.PA) : +6.68€ (à l'ouverture)
-- **2026-07-22** | TotalEnergies (TTE.PA) : +6.2€ (à l'ouverture)
 
 ---
 *Ce rapport est généré automatiquement par l'IA Gemini.*
