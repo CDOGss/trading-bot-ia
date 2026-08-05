@@ -1,12 +1,1 @@
-[
-    {
-        "company": "Capgemini",
-        "ticker": "CAP.PA",
-        "reason": "L'accélération brutale du Nasdaq (+2.20%) et l'envolée stratosphérique de Palantir (+27% à Wall Street) sur d'excellents résultats liés à l'IA créent un appel d'air massif pour la tech. Cette dynamique s'est amplifiée pendant la séance américaine, donc après ou vers la fin de séance européenne. Ce puissant flux acheteur n'est pas encore intégré dans les cours parisiens et provoquera mécaniquement un gap haussier de rattrapage demain matin à 9h00 sur les valeurs technologiques et de services informatiques européennes.",
-        "conviction": 8,
-        "market_regime": "risk_on",
-        "buy_price": 107.3499984741211,
-        "buy_date": "2026-08-04",
-        "amount_eur": 500
-    }
-]
+[]
