@@ -1,12 +1,1 @@
-[
-    {
-        "company": "TotalEnergies",
-        "ticker": "TTE.PA",
-        "reason": "L'enlisement des discussions entre les États-Unis et l'Iran concernant la réouverture du détroit d'Ormuz soutient activement les cours du pétrole pendant la séance américaine. Cette prime de risque géopolitique sur le baril va continuer d'infuser overnight. Le marché parisien étant déjà fermé, la hausse du brut qui se matérialise actuellement à Wall Street ne sera pricée qu'à l'ouverture demain matin à Paris, offrant un excellent potentiel de gap haussier pour la major pétrolière.",
-        "conviction": 8,
-        "market_regime": "neutre",
-        "buy_price": 75.33000183105469,
-        "buy_date": "2026-08-10",
-        "amount_eur": 500
-    }
-]
+[]
