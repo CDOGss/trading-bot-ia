@@ -1248,5 +1248,111 @@
                 "gain_loss_eur": 0.46
             }
         }
+    },
+    {
+        "ticker": "STMPA.PA",
+        "company": "STMicroelectronics",
+        "buy_date": "2026-08-13",
+        "buy_price": 47.869998931884766,
+        "conviction": 9,
+        "market_regime": "risk_on",
+        "eval_date": "2026-08-14",
+        "performance": {
+            "09:00": {
+                "price": 46.82500076293945,
+                "gain_loss_pct": -2.18,
+                "gain_loss_eur": -10.91
+            },
+            "09:30": {
+                "price": 46.959999084472656,
+                "gain_loss_pct": -1.9,
+                "gain_loss_eur": -9.5
+            },
+            "12:00": {
+                "price": 47.34000015258789,
+                "gain_loss_pct": -1.11,
+                "gain_loss_eur": -5.54
+            },
+            "17:00": {
+                "price": 47.099998474121094,
+                "gain_loss_pct": -1.61,
+                "gain_loss_eur": -8.04
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8650.330078125,
+                "gain_loss_pct": -0.1,
+                "gain_loss_eur": -0.52
+            },
+            "09:30": {
+                "price": 8651.25,
+                "gain_loss_pct": -0.09,
+                "gain_loss_eur": -0.46
+            },
+            "12:00": {
+                "price": 8657.6396484375,
+                "gain_loss_pct": -0.02,
+                "gain_loss_eur": -0.1
+            },
+            "17:00": {
+                "price": 8650.8203125,
+                "gain_loss_pct": -0.1,
+                "gain_loss_eur": -0.49
+            }
+        }
+    },
+    {
+        "ticker": "LR.PA",
+        "company": "Legrand",
+        "buy_date": "2026-08-13",
+        "buy_price": 141.6999969482422,
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "eval_date": "2026-08-14",
+        "performance": {
+            "09:00": {
+                "price": 141.5,
+                "gain_loss_pct": -0.14,
+                "gain_loss_eur": -0.71
+            },
+            "09:30": {
+                "price": 141.89999389648438,
+                "gain_loss_pct": 0.14,
+                "gain_loss_eur": 0.71
+            },
+            "12:00": {
+                "price": 141.85000610351562,
+                "gain_loss_pct": 0.11,
+                "gain_loss_eur": 0.53
+            },
+            "17:00": {
+                "price": 141.35000610351562,
+                "gain_loss_pct": -0.25,
+                "gain_loss_eur": -1.23
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8650.330078125,
+                "gain_loss_pct": -0.1,
+                "gain_loss_eur": -0.52
+            },
+            "09:30": {
+                "price": 8651.25,
+                "gain_loss_pct": -0.09,
+                "gain_loss_eur": -0.46
+            },
+            "12:00": {
+                "price": 8657.6396484375,
+                "gain_loss_pct": -0.02,
+                "gain_loss_eur": -0.1
+            },
+            "17:00": {
+                "price": 8650.8203125,
+                "gain_loss_pct": -0.1,
+                "gain_loss_eur": -0.49
+            }
+        }
     }
 ]
