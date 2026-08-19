@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "company": "Unibail-Rodamco-Westfield",
+        "ticker": "URW.PA",
+        "reason": "La détente marquée des rendements obligataires aux États-Unis s'est matérialisée en cours de séance américaine, constituant un catalyseur macroéconomique qui n'a pas pu être totalement intégré par Paris avant sa clôture. Avec un VIX en repli de plus de 4% et une ouverture haussière à Wall Street, le sentiment Risk-On overnight va mécaniquement profiter aux valeurs foncières à forte duration (ultra-sensibles aux taux) dès demain 9h00. URW est le véhicule idéal pour capter ce gap de rattrapage.",
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "buy_price": 102.25,
+        "buy_date": "2026-08-19",
+        "amount_eur": 500
+    }
+]
