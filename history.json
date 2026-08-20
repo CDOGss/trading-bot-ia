@@ -1354,5 +1354,58 @@
                 "gain_loss_eur": -0.49
             }
         }
+    },
+    {
+        "ticker": "URW.PA",
+        "company": "Unibail-Rodamco-Westfield",
+        "buy_date": "2026-08-19",
+        "buy_price": 102.25,
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "eval_date": "2026-08-20",
+        "performance": {
+            "09:00": {
+                "price": 102.75,
+                "gain_loss_pct": 0.49,
+                "gain_loss_eur": 2.44
+            },
+            "09:30": {
+                "price": 103.0,
+                "gain_loss_pct": 0.73,
+                "gain_loss_eur": 3.67
+            },
+            "12:00": {
+                "price": 103.25,
+                "gain_loss_pct": 0.98,
+                "gain_loss_eur": 4.89
+            },
+            "17:00": {
+                "price": 102.80000305175781,
+                "gain_loss_pct": 0.54,
+                "gain_loss_eur": 2.69
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8504.400390625,
+                "gain_loss_pct": -0.11,
+                "gain_loss_eur": -0.55
+            },
+            "09:30": {
+                "price": 8493.0595703125,
+                "gain_loss_pct": -0.24,
+                "gain_loss_eur": -1.22
+            },
+            "12:00": {
+                "price": 8483.240234375,
+                "gain_loss_pct": -0.36,
+                "gain_loss_eur": -1.79
+            },
+            "17:00": {
+                "price": 8473.8603515625,
+                "gain_loss_pct": -0.47,
+                "gain_loss_eur": -2.35
+            }
+        }
     }
 ]
