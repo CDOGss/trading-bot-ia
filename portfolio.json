@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "company": "Capgemini",
+        "ticker": "CAP.PA",
+        "reason": "La Bourse de Paris a clôturé sur une note de prudence (+0.31%) en tentant de briser une série de huit baisses consécutives. Cependant, l'accélération franche de Wall Street (Nasdaq à +0.65%) et l'écrasement de la volatilité (VIX à -4.68%) observés pendant la séance américaine actent un véritable retour de l'appétit pour le risque. Cette dynamique, catalysée par l'activisme sur les taux américains, n'a pas pu être intégrée dans les cours parisiens à 17h30. Capgemini, valeur de croissance très sensible à la tech américaine et aux taux d'intérêt, est le véhicule parfait pour capter ce gap de rattrapage haussier à l'ouverture de 09h00, offrant une alternative plus résiliente que STMicroelectronics.",
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "buy_price": 111.3499984741211,
+        "buy_date": "2026-08-21",
+        "amount_eur": 500
+    }
+]
