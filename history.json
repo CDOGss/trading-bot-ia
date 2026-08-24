@@ -1407,5 +1407,58 @@
                 "gain_loss_eur": -2.35
             }
         }
+    },
+    {
+        "ticker": "CAP.PA",
+        "company": "Capgemini",
+        "buy_date": "2026-08-21",
+        "buy_price": 111.3499984741211,
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "eval_date": "2026-08-24",
+        "performance": {
+            "09:00": {
+                "price": 110.4000015258789,
+                "gain_loss_pct": -0.85,
+                "gain_loss_eur": -4.27
+            },
+            "09:30": {
+                "price": 110.25,
+                "gain_loss_pct": -0.99,
+                "gain_loss_eur": -4.94
+            },
+            "12:00": {
+                "price": 110.5999984741211,
+                "gain_loss_pct": -0.67,
+                "gain_loss_eur": -3.37
+            },
+            "17:00": {
+                "price": 111.4000015258789,
+                "gain_loss_pct": 0.04,
+                "gain_loss_eur": 0.22
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8469.9404296875,
+                "gain_loss_pct": -0.2,
+                "gain_loss_eur": -1.02
+            },
+            "09:30": {
+                "price": 8464.1796875,
+                "gain_loss_pct": -0.27,
+                "gain_loss_eur": -1.36
+            },
+            "12:00": {
+                "price": 8483.48046875,
+                "gain_loss_pct": -0.04,
+                "gain_loss_eur": -0.22
+            },
+            "17:00": {
+                "price": 8457.33984375,
+                "gain_loss_pct": -0.35,
+                "gain_loss_eur": -1.76
+            }
+        }
     }
 ]
