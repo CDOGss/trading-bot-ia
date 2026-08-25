@@ -1,17 +1,21 @@
 # 📊 Rapport Journalier du Trading Bot
 
 ## 🛒 Achats du Jour (Positions Actuelles)
-### TotalEnergies (TTE.PA)
-- **Achat :** 76.05000305175781€ (pour 500€)
-- **Analyse de l'IA :** La Bourse de Paris a clôturé dans un climat attentiste, mais Wall Street évolue actuellement au gré des anticipations de sanctions imminentes contre l'Iran, une information qui prend de l'ampleur pendant la séance américaine. Ce catalyseur géopolitique devrait soutenir fermement les cours du pétrole (Brent/WTI) durant la nuit asiatique et américaine. TotalEnergies, qui offre une corrélation directe à l'or noir et un statut de valeur défensive, est idéalement positionnée pour capter un gap haussier demain à 09h00, cette prime de risque géopolitique n'étant pas encore pricée dans sa clôture de 17h30.
+### STMicroelectronics (STMPA.PA)
+- **Achat :** 42.53499984741211€ (pour 500€)
+- **Analyse de l'IA :** Le Nasdaq accélère à la hausse en séance américaine, porté par le compartiment technologique et l'optimisme grandissant avant la publication de Nvidia. En tant que proxy direct des semi-conducteurs sur la place parisienne, STMicroelectronics devrait bénéficier d'un effet de rattrapage haussier (gap) à l'ouverture, ce momentum tech US n'étant pas pleinement intégré dans le cours de clôture européen.
+
+### Unibail-Rodamco-Westfield (URW.PA)
+- **Achat :** 102.94999694824219€ (pour 500€)
+- **Analyse de l'IA :** La séance américaine confirme une poursuite marquée de la détente des taux obligataires (en parallèle de la chute du pétrole). Cette dynamique de baisse des rendements se prolongeant après la clôture de Paris, elle offre un avantage mécanique décisif pour l'ouverture des foncières très sensibles aux taux d'intérêt, dont URW est le représentant le plus réactif du CAC 40.
 
 ---
 
 ## 📈 Performances Récentes
+- **2026-08-25** | TotalEnergies (TTE.PA) : +1.12€ (à l'ouverture)
 - **2026-08-24** | Capgemini (CAP.PA) : -4.27€ (à l'ouverture)
 - **2026-08-20** | Unibail-Rodamco-Westfield (URW.PA) : +2.44€ (à l'ouverture)
 - **2026-08-14** | Legrand (LR.PA) : -0.71€ (à l'ouverture)
-- **2026-08-14** | STMicroelectronics (STMPA.PA) : -10.91€ (à l'ouverture)
 
 ---
 *Ce rapport est généré automatiquement par l'IA Gemini.*
