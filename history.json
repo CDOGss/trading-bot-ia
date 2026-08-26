@@ -1513,5 +1513,111 @@
                 "gain_loss_eur": -0.79
             }
         }
+    },
+    {
+        "ticker": "STMPA.PA",
+        "company": "STMicroelectronics",
+        "buy_date": "2026-08-25",
+        "buy_price": 42.53499984741211,
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "eval_date": "2026-08-26",
+        "performance": {
+            "09:00": {
+                "price": 42.80500030517578,
+                "gain_loss_pct": 0.63,
+                "gain_loss_eur": 3.17
+            },
+            "09:30": {
+                "price": 42.58000183105469,
+                "gain_loss_pct": 0.11,
+                "gain_loss_eur": 0.53
+            },
+            "12:00": {
+                "price": 42.81999969482422,
+                "gain_loss_pct": 0.67,
+                "gain_loss_eur": 3.35
+            },
+            "17:00": {
+                "price": 42.345001220703125,
+                "gain_loss_pct": -0.45,
+                "gain_loss_eur": -2.23
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8472.8798828125,
+                "gain_loss_pct": 0.34,
+                "gain_loss_eur": 1.71
+            },
+            "09:30": {
+                "price": 8481.259765625,
+                "gain_loss_pct": 0.44,
+                "gain_loss_eur": 2.21
+            },
+            "12:00": {
+                "price": 8476.3798828125,
+                "gain_loss_pct": 0.38,
+                "gain_loss_eur": 1.92
+            },
+            "17:00": {
+                "price": 8487.6796875,
+                "gain_loss_pct": 0.52,
+                "gain_loss_eur": 2.59
+            }
+        }
+    },
+    {
+        "ticker": "URW.PA",
+        "company": "Unibail-Rodamco-Westfield",
+        "buy_date": "2026-08-25",
+        "buy_price": 102.94999694824219,
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "eval_date": "2026-08-26",
+        "performance": {
+            "09:00": {
+                "price": 103.25,
+                "gain_loss_pct": 0.29,
+                "gain_loss_eur": 1.46
+            },
+            "09:30": {
+                "price": 102.5999984741211,
+                "gain_loss_pct": -0.34,
+                "gain_loss_eur": -1.7
+            },
+            "12:00": {
+                "price": 102.3499984741211,
+                "gain_loss_pct": -0.58,
+                "gain_loss_eur": -2.91
+            },
+            "17:00": {
+                "price": 102.44999694824219,
+                "gain_loss_pct": -0.49,
+                "gain_loss_eur": -2.43
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8472.8798828125,
+                "gain_loss_pct": 0.34,
+                "gain_loss_eur": 1.71
+            },
+            "09:30": {
+                "price": 8481.259765625,
+                "gain_loss_pct": 0.44,
+                "gain_loss_eur": 2.21
+            },
+            "12:00": {
+                "price": 8476.3798828125,
+                "gain_loss_pct": 0.38,
+                "gain_loss_eur": 1.92
+            },
+            "17:00": {
+                "price": 8487.6796875,
+                "gain_loss_pct": 0.52,
+                "gain_loss_eur": 2.59
+            }
+        }
     }
 ]
