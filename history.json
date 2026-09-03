@@ -1725,5 +1725,58 @@
                 "gain_loss_eur": -4.32
             }
         }
+    },
+    {
+        "ticker": "STMPA.PA",
+        "company": "STMicroelectronics",
+        "buy_date": "2026-09-02",
+        "buy_price": 43.724998474121094,
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "eval_date": "2026-09-03",
+        "performance": {
+            "09:00": {
+                "price": 44.0099983215332,
+                "gain_loss_pct": 0.65,
+                "gain_loss_eur": 3.26
+            },
+            "09:30": {
+                "price": 44.36000061035156,
+                "gain_loss_pct": 1.45,
+                "gain_loss_eur": 7.26
+            },
+            "12:00": {
+                "price": 44.0099983215332,
+                "gain_loss_pct": 0.65,
+                "gain_loss_eur": 3.26
+            },
+            "17:00": {
+                "price": 43.779998779296875,
+                "gain_loss_pct": 0.13,
+                "gain_loss_eur": 0.63
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8278.98046875,
+                "gain_loss_pct": -0.09,
+                "gain_loss_eur": -0.47
+            },
+            "09:30": {
+                "price": 8260.1103515625,
+                "gain_loss_pct": -0.32,
+                "gain_loss_eur": -1.61
+            },
+            "12:00": {
+                "price": 8254.9599609375,
+                "gain_loss_pct": -0.38,
+                "gain_loss_eur": -1.92
+            },
+            "17:00": {
+                "price": 8275.349609375,
+                "gain_loss_pct": -0.14,
+                "gain_loss_eur": -0.69
+            }
+        }
     }
 ]
