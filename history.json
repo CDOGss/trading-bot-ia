@@ -1778,5 +1778,58 @@
                 "gain_loss_eur": -0.69
             }
         }
+    },
+    {
+        "ticker": "TTE.PA",
+        "company": "TotalEnergies",
+        "buy_date": "2026-09-03",
+        "buy_price": 78.16000366210938,
+        "conviction": 8,
+        "market_regime": "risk_on",
+        "eval_date": "2026-09-04",
+        "performance": {
+            "09:00": {
+                "price": 76.97000122070312,
+                "gain_loss_pct": -1.52,
+                "gain_loss_eur": -7.61
+            },
+            "09:30": {
+                "price": 76.97000122070312,
+                "gain_loss_pct": -1.52,
+                "gain_loss_eur": -7.61
+            },
+            "12:00": {
+                "price": 77.0999984741211,
+                "gain_loss_pct": -1.36,
+                "gain_loss_eur": -6.78
+            },
+            "17:00": {
+                "price": 75.9800033569336,
+                "gain_loss_pct": -2.79,
+                "gain_loss_eur": -13.95
+            }
+        },
+        "benchmark_performance": {
+            "09:00": {
+                "price": 8266.4599609375,
+                "gain_loss_pct": -0.11,
+                "gain_loss_eur": -0.54
+            },
+            "09:30": {
+                "price": 8287.5302734375,
+                "gain_loss_pct": 0.15,
+                "gain_loss_eur": 0.74
+            },
+            "12:00": {
+                "price": 8282.240234375,
+                "gain_loss_pct": 0.08,
+                "gain_loss_eur": 0.42
+            },
+            "17:00": {
+                "price": 8271.91015625,
+                "gain_loss_pct": -0.04,
+                "gain_loss_eur": -0.21
+            }
+        }
     }
 ]

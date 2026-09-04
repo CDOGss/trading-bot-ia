@@ -1,12 +1,1 @@
-[
-    {
-        "company": "TotalEnergies",
-        "ticker": "TTE.PA",
-        "reason": "La séance américaine affiche une forte dynamique haussière (S&P 500 +1.06%, baisse des taux, VIX en repli), ce qui va dicter une ouverture européenne dans le vert. Cependant, le véritable edge réside dans les craintes géopolitiques de fin de journée autour du Moyen-Orient (détroit d'Ormuz) qui propulsent le baril de pétrole vers les 100 dollars pendant la séance américaine. Ce mouvement sur le brut s'est accéléré après la clôture parisienne, ce qui signifie que la prime géopolitique n'est pas encore pricée dans le cours de TotalEnergies. L'action bénéficiera à plein de ce rattrapage sectoriel à 09h00.",
-        "conviction": 8,
-        "market_regime": "risk_on",
-        "buy_price": 78.16000366210938,
-        "buy_date": "2026-09-03",
-        "amount_eur": 500
-    }
-]
+[]
