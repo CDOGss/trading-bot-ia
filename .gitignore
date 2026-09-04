@@ -2,3 +2,8 @@ __pycache__/
 *.pyc
 dist/
 .claude/
+
+# Secrets — toutes les variantes (.env, .env.txt créé par le Bloc-notes…)
+.env
+.env.*
+!.env.example

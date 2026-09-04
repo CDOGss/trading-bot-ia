@@ -1,6 +1,6 @@
 # 📈 Trading Bot IA - Analyste Institutionnel (CAC 40 / SBF 120)
 
-Ce projet est un bot de "paper trading" (simulation boursière automatisée) propulsé par l'intelligence artificielle **Gemini 3.1 Pro (via l'API Google GenAI)**. Il est conçu pour agir comme un gérant de portefeuille institutionnel senior.
+Ce projet est un bot de "paper trading" (simulation boursière automatisée) propulsé par l'intelligence artificielle **Gemini 3.8 Flash (via l'API Google GenAI)**. Il est conçu pour agir comme un gérant de portefeuille institutionnel senior.
 
 Le bot fonctionne de manière 100% autonome grâce à **GitHub Actions**.
 
