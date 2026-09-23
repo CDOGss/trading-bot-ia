@@ -1,12 +1,1 @@
-[
-    {
-        "company": "STMicroelectronics",
-        "ticker": "STMPA.PA",
-        "reason": "Détente de la volatilité (VIX à 14.27, -4%) et surperformance du Nasdaq (+0.31%) tirée par le regain d'appétit pour l'écosystème IA suite aux annonces de Meta durant la session américaine. Le gap technologique américain s'est accéléré après 16h00 alors que les indices parisiens consolidaient leur clôture. STMPA offre le meilleur bêta sur le SOX/Nasdaq pour capter le gap d'ouverture demain à 09h00, tout en bénéficiant de l'apaisement sur les cours pétroliers.",
-        "conviction": 7,
-        "market_regime": "neutre",
-        "buy_price": 46.61000061035156,
-        "buy_date": "2026-09-22",
-        "amount_eur": 500
-    }
-]
+[]
