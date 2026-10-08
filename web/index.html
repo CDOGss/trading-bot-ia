@@ -70,6 +70,9 @@
     }
     .app-header h1 { font-size: 2.6rem; letter-spacing: -1.2px; line-height: 1.05; }
     .app-header .subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-top: 6px; }
+    .stopped-banner { border: 1px solid var(--warning); border-radius: 12px; padding: 12px 16px; margin: 0 0 1.5rem; color: var(--text-primary); background: rgba(255, 179, 0, 0.08); line-height: 1.5; }
+    .stopped-banner strong { color: var(--warning); }
+    .stopped-banner a { color: var(--accent-primary); }
     .header-meta { text-align: right; color: var(--text-secondary); font-size: 0.85rem; }
     .header-meta a { color: var(--accent-secondary); text-decoration: none; }
     .header-meta a:hover { text-decoration: underline; }
@@ -359,10 +362,17 @@
             <div class="subtitle">Simulation quotidienne — achat en fin de séance, revente à l'ouverture. 500 € par position.</div>
           </div>
           <div class="header-meta">
-            <div><span class="pulse-dot"></span>Mis à jour le ${lastDate}</div>
+            <div>⏸ Arrêté — dernier passage le ${lastDate}</div>
             <div style="margin-top:4px"><a href="https://github.com/CDOGss/trading-bot-ia" target="_blank" rel="noopener">Voir le code sur GitHub ↗</a></div>
           </div>
         </header>
+
+        <div class="stopped-banner">
+          <strong>Bot arrêté depuis le 25/09/2026.</strong> Il appliquait la même stratégie
+          qu'<a href="https://cdogss.github.io/analyse-boursiere/">Analyse boursière</a>
+          (achat en fin de séance, revente à l'ouverture), avec de moins bons résultats :
+          les chiffres ci-dessous sont figés et conservés pour mémoire.
+        </div>
 
         <div class="time-selector">
           <span class="sel-label">Horaire de revente :</span>
